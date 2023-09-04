@@ -103,15 +103,6 @@ class MainViewController: UICollectionViewController {
         }
     }
     
-    private func showAlerty(withStatus status: Alert) {
-        let alert = UIAlertController(title: status.title, message: status.message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        DispatchQueue.main.async { [unowned self] in
-            present(alert, animated: true)
-        }
-    }
-    
     private func fetchCourse() {
         guard let url = URL(string: Link.courseURL.rawValue) else { return }
         
@@ -125,9 +116,9 @@ class MainViewController: UICollectionViewController {
             do {
                 let course = try decoder.decode(Course.self, from: data)
                 print(course)
-                self?.showAlerty(withStatus: .success)
+                self?.showAlert(withStatus: .success)
             } catch let error {
-                self?.showAlerty(withStatus: .failed)
+                self?.showAlert(withStatus: .failed)
                 print(error.localizedDescription)
             }
         }.resume()
