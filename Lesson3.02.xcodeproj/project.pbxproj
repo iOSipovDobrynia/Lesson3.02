@@ -14,6 +14,7 @@
 		E339F2FA2AA50548000DF805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E339F2F92AA50548000DF805 /* Assets.xcassets */; };
 		E339F2FD2AA50548000DF805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E339F2FB2AA50548000DF805 /* LaunchScreen.storyboard */; };
 		E339F3092AA50739000DF805 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339F3082AA50739000DF805 /* MainViewController.swift */; };
+		E339F30B2AA599F6000DF805 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339F30A2AA599F6000DF805 /* UserActionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E339F2FC2AA50548000DF805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E339F2FE2AA50548000DF805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E339F3082AA50739000DF805 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E339F30A2AA599F6000DF805 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				E339F2F42AA50547000DF805 /* ImageViewController.swift */,
 				E339F3082AA50739000DF805 /* MainViewController.swift */,
+				E339F30A2AA599F6000DF805 /* UserActionCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E339F30B2AA599F6000DF805 /* UserActionCell.swift in Sources */,
 				E339F3092AA50739000DF805 /* MainViewController.swift in Sources */,
 				E339F2F52AA50547000DF805 /* ImageViewController.swift in Sources */,
 				E339F2F12AA50547000DF805 /* AppDelegate.swift in Sources */,

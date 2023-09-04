@@ -9,8 +9,8 @@ import UIKit
 
 class ImageViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    // MARK: - IBOutlets
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var imageView: UIImageView!
 }
 
