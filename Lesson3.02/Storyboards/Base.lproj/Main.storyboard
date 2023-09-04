@@ -94,11 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="23R-xp-X30">
-                                <rect key="frame" x="76.666666666666686" y="366" width="240" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="5Wq-h8-3wa"/>
-                                    <constraint firstAttribute="height" constant="120" id="beT-er-m3S"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="BBe-Pk-X11">
                                 <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
@@ -107,10 +103,12 @@
                         <viewLayoutGuide key="safeArea" id="9CB-hG-fNz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="23R-xp-X30" firstAttribute="top" secondItem="9CB-hG-fNz" secondAttribute="top" id="Aus-WA-42p"/>
+                            <constraint firstItem="23R-xp-X30" firstAttribute="leading" secondItem="9CB-hG-fNz" secondAttribute="leading" id="DJ6-Aa-pFR"/>
+                            <constraint firstItem="9CB-hG-fNz" firstAttribute="bottom" secondItem="23R-xp-X30" secondAttribute="bottom" id="Fon-IS-Aiz"/>
                             <constraint firstItem="BBe-Pk-X11" firstAttribute="centerX" secondItem="Hdp-sn-qf9" secondAttribute="centerX" id="IbH-8B-vaC"/>
-                            <constraint firstItem="23R-xp-X30" firstAttribute="centerX" secondItem="Hdp-sn-qf9" secondAttribute="centerX" id="dcP-mV-3RT"/>
+                            <constraint firstItem="9CB-hG-fNz" firstAttribute="trailing" secondItem="23R-xp-X30" secondAttribute="trailing" id="LGA-Fl-qC1"/>
                             <constraint firstItem="BBe-Pk-X11" firstAttribute="centerY" secondItem="Hdp-sn-qf9" secondAttribute="centerY" id="jAt-bi-CHj"/>
-                            <constraint firstItem="23R-xp-X30" firstAttribute="centerY" secondItem="Hdp-sn-qf9" secondAttribute="centerY" id="ktU-L9-Y3v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XOp-bs-Fgb"/>
@@ -121,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUi-3p-UxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2808" y="388"/>
+            <point key="canvasLocation" x="2806.8702290076335" y="387.32394366197184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pDw-fo-vuw">
