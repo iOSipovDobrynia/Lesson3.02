@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum Link: String {
+    case imageURL = "https://upload.wikimedia.org/wikipedia/commons/6/6a/PNG_Test.png"
+}
+
 enum UserAction: String, CaseIterable {
     case showImage = "Show Image"
     case fetchCourse = "Fetch Course"
@@ -36,7 +40,21 @@ class MainViewController: UICollectionViewController {
     
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let userAction = userActions[indexPath.item]
+        switch userAction {
+        case .showImage:
+            performSegue(withIdentifier: "showImage", sender: nil)
+        case .fetchCourse:
+            fetchCourse()
+        case .fetchCourses:
+            fetchCourses()
+        case .aboutSwiftBook:
+            fetchInfoAboutUs()
+        case .aboutSwiftBook2:
+            fetchInfoAboutUsWithEmptyFields()
+        case .showCourses:
+            performSegue(withIdentifier: "showCourses", sender: nil)
+        }
     }
     
     // MARK: - Navigation
@@ -50,6 +68,22 @@ class MainViewController: UICollectionViewController {
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+    
+    private func fetchCourse() {
+        
+    }
+    
+    private func fetchCourses() {
+        
+    }
+    
+    private func fetchInfoAboutUs() {
+        
+    }
+    
+    private func fetchInfoAboutUsWithEmptyFields() {
+        
     }
 }
 
