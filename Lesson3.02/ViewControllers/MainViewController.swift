@@ -98,9 +98,7 @@ class MainViewController: UICollectionViewController {
         )
         let okAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okAction)
-        DispatchQueue.main.async { [unowned self] in
-            present(alert, animated: true)
-        }
+        present(alert, animated: true)
     }
     
     private func fetchCourse() {
@@ -116,24 +114,91 @@ class MainViewController: UICollectionViewController {
             do {
                 let course = try decoder.decode(Course.self, from: data)
                 print(course)
-                self?.showAlert(withStatus: .success)
+                DispatchQueue.main.async {
+                    self?.showAlert(withStatus: .success)
+                }
             } catch let error {
-                self?.showAlert(withStatus: .failed)
+                DispatchQueue.main.async {
+                    self?.showAlert(withStatus: .failed)
+                }
                 print(error.localizedDescription)
             }
         }.resume()
     }
     
     private func fetchCourses() {
+        guard let url = URL(string: Link.coursesURL.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let courses = try decoder.decode([Course].self, from: data)
+                print(courses)
+                DispatchQueue.main.async {
+                    self?.showAlert(withStatus: .success)
+                }
+            } catch let error {
+                DispatchQueue.main.async {
+                    self?.showAlert(withStatus: .failed)
+                }
+                print(error.localizedDescription)
+            }
+        }.resume()
     }
     
     private func fetchInfoAboutUs() {
+        guard let url = URL(string: Link.aboutUsURL.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let info = try decoder.decode(SwiftBookInfo.self, from: data)
+                print(info)
+                DispatchQueue.main.async {
+                    self?.showAlert(withStatus: .success)
+                }
+            } catch let error {
+                DispatchQueue.main.async {
+                    self?.showAlert(withStatus: .failed)
+                }
+                print(error.localizedDescription)
+            }
+        }.resume()
     }
     
     private func fetchInfoAboutUsWithEmptyFields() {
+        guard let url = URL(string: Link.aboutUsURL2.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let info = try decoder.decode(SwiftBookInfo.self, from: data)
+                print(info)
+                DispatchQueue.main.async {
+                    self?.showAlert(withStatus: .success)
+                }
+            } catch let error {
+                DispatchQueue.main.async {
+                    self?.showAlert(withStatus: .failed)
+                }
+                print(error.localizedDescription)
+            }
+        }.resume()
     }
 }
 
