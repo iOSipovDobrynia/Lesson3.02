@@ -7,14 +7,6 @@
 
 import UIKit
 
-enum Link: String {
-    case imageURL = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
-    case courseURL = "https://swiftbook.ru//wp-content/uploads/api/api_course"
-    case coursesURL = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
-    case aboutUsURL = "https://swiftbook.ru//wp-content/uploads/api/api_website_description"
-    case aboutUsURL2 = "https://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields"
-}
-
 enum Alert {
     case success
     case failed

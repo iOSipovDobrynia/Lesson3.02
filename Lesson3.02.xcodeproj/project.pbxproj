@@ -18,6 +18,7 @@
 		E339F30B2AA599F6000DF805 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339F30A2AA599F6000DF805 /* UserActionCell.swift */; };
 		E35454C62AA994B5001C277E /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35454C52AA994B5001C277E /* CoursesViewController.swift */; };
 		E35454C82AA99907001C277E /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35454C72AA99907001C277E /* CourseCell.swift */; };
+		E39570C12AAA5D2D005B2267 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39570C02AAA5D2D005B2267 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E339F30A2AA599F6000DF805 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		E35454C52AA994B5001C277E /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		E35454C72AA99907001C277E /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		E39570C02AAA5D2D005B2267 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,10 @@
 		E339F2EF2AA50547000DF805 /* Lesson3.02 */ = {
 			isa = PBXGroup;
 			children = (
+				E39570BF2AAA5D1F005B2267 /* Services */,
 				E339F3042AA50579000DF805 /* App */,
+				E39570BD2AAA5CE6005B2267 /* Model */,
+				E39570BE2AAA5D11005B2267 /* Views */,
 				E339F3052AA505C3000DF805 /* ViewControllers */,
 				E339F3062AA505D2000DF805 /* Storyboards */,
 				E339F3072AA505DA000DF805 /* Resources */,
@@ -89,10 +94,7 @@
 			children = (
 				E339F2F42AA50547000DF805 /* ImageViewController.swift */,
 				E35454C52AA994B5001C277E /* CoursesViewController.swift */,
-				E35454C72AA99907001C277E /* CourseCell.swift */,
 				E339F3082AA50739000DF805 /* MainViewController.swift */,
-				E339F30A2AA599F6000DF805 /* UserActionCell.swift */,
-				E32B53BC2AA65B87006A3FD9 /* Course.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -112,6 +114,31 @@
 				E339F2F92AA50548000DF805 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E39570BD2AAA5CE6005B2267 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E32B53BC2AA65B87006A3FD9 /* Course.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E39570BE2AAA5D11005B2267 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E35454C72AA99907001C277E /* CourseCell.swift */,
+				E339F30A2AA599F6000DF805 /* UserActionCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E39570BF2AAA5D1F005B2267 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E39570C02AAA5D2D005B2267 /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E39570C12AAA5D2D005B2267 /* NetworkManager.swift in Sources */,
 				E32B53BD2AA65B87006A3FD9 /* Course.swift in Sources */,
 				E35454C62AA994B5001C277E /* CoursesViewController.swift in Sources */,
 				E339F30B2AA599F6000DF805 /* UserActionCell.swift in Sources */,
