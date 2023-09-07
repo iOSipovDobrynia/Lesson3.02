@@ -99,28 +99,7 @@ class MainViewController: UICollectionViewController {
     }
     
     private func fetchCourse() {
-        guard let url = URL(string: Link.courseURL.rawValue) else { return }
         
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            do {
-                let course = try decoder.decode(Course.self, from: data)
-                print(course)
-                DispatchQueue.main.async {
-                    self?.showAlert(withStatus: .success)
-                }
-            } catch let error {
-                DispatchQueue.main.async {
-                    self?.showAlert(withStatus: .failed)
-                }
-                print(error.localizedDescription)
-            }
-        }.resume()
     }
     
     private func fetchCourses() {

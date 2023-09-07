@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum NetworkError: Error {
+    case invalidUrl
+    case noData
+    case decodingError
+}
+
 enum Link: String {
     case imageURL = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     case courseURL = "https://swiftbook.ru//wp-content/uploads/api/api_course"
@@ -20,13 +26,23 @@ class NetworkManager {
     
     private init() {}
     
-    func fetchImage(fromUrl url: String?, completion: @escaping(Data) -> Void) {
-        guard let url = URL(string: url ?? "") else { return }
+    func fetchImage(fromUrl url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
+            completion(.failure(.invalidUrl))
+            return
+        }
         DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else { return }
+            guard let imageData = try? Data(contentsOf: url) else {
+                completion(.failure(.noData))
+                return
+            }
             DispatchQueue.main.async {
-                completion(imageData)
+                completion(.success(imageData))
             }
         }
+    }
+    
+    func fetchCourse(fromUrl url: String?) {
+        
     }
 }
