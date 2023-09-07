@@ -16,6 +16,8 @@
 		E339F2FD2AA50548000DF805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E339F2FB2AA50548000DF805 /* LaunchScreen.storyboard */; };
 		E339F3092AA50739000DF805 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339F3082AA50739000DF805 /* MainViewController.swift */; };
 		E339F30B2AA599F6000DF805 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339F30A2AA599F6000DF805 /* UserActionCell.swift */; };
+		E35454C62AA994B5001C277E /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35454C52AA994B5001C277E /* CoursesViewController.swift */; };
+		E35454C82AA99907001C277E /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35454C72AA99907001C277E /* CourseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		E339F2FE2AA50548000DF805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E339F3082AA50739000DF805 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E339F30A2AA599F6000DF805 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
+		E35454C52AA994B5001C277E /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		E35454C72AA99907001C277E /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				E339F2F42AA50547000DF805 /* ImageViewController.swift */,
+				E35454C52AA994B5001C277E /* CoursesViewController.swift */,
+				E35454C72AA99907001C277E /* CourseCell.swift */,
 				E339F3082AA50739000DF805 /* MainViewController.swift */,
 				E339F30A2AA599F6000DF805 /* UserActionCell.swift */,
 				E32B53BC2AA65B87006A3FD9 /* Course.swift */,
@@ -180,8 +186,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E32B53BD2AA65B87006A3FD9 /* Course.swift in Sources */,
+				E35454C62AA994B5001C277E /* CoursesViewController.swift in Sources */,
 				E339F30B2AA599F6000DF805 /* UserActionCell.swift in Sources */,
 				E339F3092AA50739000DF805 /* MainViewController.swift in Sources */,
+				E35454C82AA99907001C277E /* CourseCell.swift in Sources */,
 				E339F2F52AA50547000DF805 /* ImageViewController.swift in Sources */,
 				E339F2F12AA50547000DF805 /* AppDelegate.swift in Sources */,
 				E339F2F32AA50547000DF805 /* SceneDelegate.swift in Sources */,
