@@ -41,7 +41,9 @@ extension CoursesViewController {
             }
             
             do {
-                self?.courses = try JSONDecoder().decode([Course].self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                self?.courses = try decoder.decode([Course].self, from: data)
                 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()

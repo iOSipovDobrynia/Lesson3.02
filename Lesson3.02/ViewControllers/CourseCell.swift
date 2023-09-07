@@ -15,8 +15,8 @@ class CourseCell: UITableViewCell {
     
     func configure(withCourse course: Course) {
         courseNameLabel.text = course.name
-        numberOfLessons.text = "Number of lessons: \(course.number_of_lessons ?? 0)"
-        numbersOfTests.text = "Number of tests: \(course.number_of_tests ?? 0)"
+        numberOfLessons.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
+        numbersOfTests.text = "Number of tests: \(course.numberOfTests ?? 0)"
         
         guard let imageURL = URL(string: course.imageUrl ?? "") else { return }
         DispatchQueue.global().async {
