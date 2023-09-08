@@ -37,6 +37,7 @@ enum UserAction: String, CaseIterable {
     case aboutSwiftBook = "About SwiftBook"
     case aboutSwiftBook2 = "About SwiftBook 2"
     case showCourses = "Show Courses"
+    case postRequestDict = "POST Request Dict"
 }
 
 class MainViewController: UICollectionViewController {
@@ -73,6 +74,8 @@ class MainViewController: UICollectionViewController {
             fetchInfoAboutUsWithEmptyFields()
         case .showCourses:
             performSegue(withIdentifier: "showCourses", sender: nil)
+        case .postRequestDict:
+            postRequestWithDict()
         }
     }
     
@@ -158,6 +161,23 @@ class MainViewController: UICollectionViewController {
             case .failure(let error):
                 print(error)
                 self?.showAlert(withStatus: .failed)
+            }
+        }
+    }
+    
+    private func postRequestWithDict() {
+        let course = [
+            "name": "name",
+            "imageUrl": "image",
+            "numberOfLessons": "8",
+            "numberOfTests": "10"
+        ]
+        NetworkManager.shared.postRequest(withData: course, toUrl: Link.postRequest.rawValue) { result in
+            switch result {
+            case .success(let json):
+                print(json)
+            case .failure(let error):
+                print(error)
             }
         }
     }
