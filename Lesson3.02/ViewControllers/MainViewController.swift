@@ -99,82 +99,67 @@ class MainViewController: UICollectionViewController {
     }
     
     private func fetchCourse() {
-        
+        NetworkManager.shared.fetch(
+            Course.self,
+            fromUrl: Link.courseURL.rawValue
+        ) { [weak self] result in
+            switch result {
+            case .success(let course):
+                print(course)
+                self?.showAlert(withStatus: .success)
+            case .failure(let error):
+                print(error)
+                self?.showAlert(withStatus: .failed)
+            }
+        }
     }
     
     private func fetchCourses() {
-        guard let url = URL(string: Link.coursesURL.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            do {
-                let courses = try decoder.decode([Course].self, from: data)
+        NetworkManager.shared.fetch(
+            [Course].self,
+            fromUrl: Link.coursesURL.rawValue
+        ) { [weak self] result in
+            switch result {
+            case .success(let courses):
                 print(courses)
-                DispatchQueue.main.async {
-                    self?.showAlert(withStatus: .success)
-                }
-            } catch let error {
-                DispatchQueue.main.async {
-                    self?.showAlert(withStatus: .failed)
-                }
-                print(error.localizedDescription)
+                self?.showAlert(withStatus: .success)
+            case .failure(let error):
+                print(error)
+                self?.showAlert(withStatus: .failed)
             }
-        }.resume()
+        }
     }
     
     private func fetchInfoAboutUs() {
-        guard let url = URL(string: Link.aboutUsURL.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            do {
-                let info = try decoder.decode(SwiftBookInfo.self, from: data)
+        NetworkManager.shared.fetch(
+            SwiftBookInfo.self,
+            fromUrl: Link.aboutUsURL.rawValue
+        ) { [weak self] result in
+            switch result {
+            case .success(let info):
                 print(info)
-                DispatchQueue.main.async {
-                    self?.showAlert(withStatus: .success)
-                }
-            } catch let error {
-                DispatchQueue.main.async {
-                    self?.showAlert(withStatus: .failed)
-                }
-                print(error.localizedDescription)
+                self?.showAlert(withStatus: .success)
+            case .failure(let error):
+                print(error)
+                self?.showAlert(withStatus: .failed)
             }
-        }.resume()
+        }
     }
     
     private func fetchInfoAboutUsWithEmptyFields() {
-        guard let url = URL(string: Link.aboutUsURL2.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            do {
-                let info = try decoder.decode(SwiftBookInfo.self, from: data)
+        NetworkManager.shared.fetch(
+            SwiftBookInfo.self,
+            fromUrl: Link.aboutUsURL2.rawValue
+        ) { [weak self] result in
+            switch result {
+            case .success(let info):
                 print(info)
-                DispatchQueue.main.async {
-                    self?.showAlert(withStatus: .success)
-                }
-            } catch let error {
-                DispatchQueue.main.async {
-                    self?.showAlert(withStatus: .failed)
-                }
-                print(error.localizedDescription)
+                self?.showAlert(withStatus: .success)
+            case .failure(let error):
+                print(error)
+                self?.showAlert(withStatus: .failed)
             }
-        }.resume()
+        }
     }
 }
 

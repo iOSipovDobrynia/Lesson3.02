@@ -42,7 +42,27 @@ class NetworkManager {
         }
     }
     
-    func fetchCourse(fromUrl url: String?) {
+    func fetch<T: Decodable>(_ type: T.Type, fromUrl url: String?, completion: @escaping(Result<T, NetworkError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
+            completion(.failure(.invalidUrl))
+            return
+        }
         
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                completion(.failure(.noData))
+                print(error?.localizedDescription ?? "There is no localized description")
+                return
+            }
+            
+            do {
+                let type = try JSONDecoder().decode(T.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(type))
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }.resume()
     }
 }

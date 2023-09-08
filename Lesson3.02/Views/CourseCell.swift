@@ -18,11 +18,12 @@ class CourseCell: UITableViewCell {
         numberOfLessons.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
         numbersOfTests.text = "Number of tests: \(course.numberOfTests ?? 0)"
         
-        guard let imageURL = URL(string: course.imageUrl ?? "") else { return }
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-            DispatchQueue.main.async { [weak self] in
+        NetworkManager.shared.fetchImage(fromUrl: course.imageUrl) { [weak self] result in
+            switch result {
+            case .success(let imageData):
                 self?.courseImage.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
             }
         }
     }
