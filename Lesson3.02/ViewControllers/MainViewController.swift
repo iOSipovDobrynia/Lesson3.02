@@ -38,9 +38,10 @@ enum UserAction: String, CaseIterable {
     case aboutSwiftBook2 = "About SwiftBook 2"
     case showCourses = "Show Courses"
     case postRequestDict = "POST Request Dict"
+    case postRequestModel = "POST Request with Model"
 }
 
-class MainViewController: UICollectionViewController {
+final class MainViewController: UICollectionViewController {
 
     // MARK: - Private prop
     private let userActions = UserAction.allCases
@@ -76,6 +77,8 @@ class MainViewController: UICollectionViewController {
             performSegue(withIdentifier: "showCourses", sender: nil)
         case .postRequestDict:
             postRequestWithDict()
+        case .postRequestModel:
+            postRequestWithModel()
         }
     }
     
@@ -176,6 +179,18 @@ class MainViewController: UICollectionViewController {
             switch result {
             case .success(let json):
                 print(json)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func postRequestWithModel() {
+        let course = Course(name: "na", imageUrl: "im", numberOfLessons: 1, numberOfTests: 2)
+        NetworkManager.shared.postRequest2(withData: course, toUrl: Link.postRequest.rawValue) { result in
+            switch result {
+            case .success(let course):
+                print(course)
             case .failure(let error):
                 print(error)
             }

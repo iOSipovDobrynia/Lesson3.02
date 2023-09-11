@@ -7,12 +7,14 @@
 
 import UIKit
 
-class CourseCell: UITableViewCell {
+final class CourseCell: UITableViewCell {
+    // MARK: - IBOutlets
     @IBOutlet var courseImage: UIImageView!
     @IBOutlet var courseNameLabel: UILabel!
     @IBOutlet var numberOfLessons: UILabel!
     @IBOutlet var numbersOfTests: UILabel!
     
+    // MARK: - Public func
     func configure(withCourse course: Course) {
         courseNameLabel.text = course.name
         numberOfLessons.text = "Number of lessons: \(course.numberOfLessons ?? 0)"

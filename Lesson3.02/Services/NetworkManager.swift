@@ -22,7 +22,7 @@ enum Link: String {
     case postRequest = "https://jsonplaceholder.typicode.com/posts"
 }
 
-class NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
@@ -95,6 +95,40 @@ class NetworkManager {
             do {
                 let jsonData = try JSONSerialization.jsonObject(with: data)
                 completion(.success(jsonData))
+            } catch let error {
+                print(error)
+            }
+
+        }.resume()
+    }
+    
+    func postRequest2(
+        withData data: Course,
+        toUrl url: String,
+        completion: @escaping(Result<Any, NetworkError>) -> Void
+    ) {
+        guard let url = URL(string: url) else {
+            completion(.failure(.invalidUrl))
+            return
+        }
+        
+        let courseData = try? JSONEncoder().encode(data)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = courseData
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data else {
+                completion(.failure(.noData))
+                print(error?.localizedDescription ?? "There is no localized description")
+                return
+            }
+            
+            do {
+                let course = try JSONDecoder().decode(Course.self, from: data)
+                completion(.success(course))
             } catch let error {
                 print(error)
             }

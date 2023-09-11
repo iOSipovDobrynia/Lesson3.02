@@ -7,13 +7,10 @@
 
 import UIKit
 
-class CoursesViewController: UITableViewController {
+final class CoursesViewController: UITableViewController {
     
+    // MARK: - Private prop
     private var courses: [Course] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

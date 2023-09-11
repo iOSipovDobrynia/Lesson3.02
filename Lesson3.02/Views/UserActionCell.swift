@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserActionCell: UICollectionViewCell {
+final class UserActionCell: UICollectionViewCell {
     
     // MARK: - IBOulets
     @IBOutlet var userActionLabel: UILabel!

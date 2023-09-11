@@ -5,7 +5,7 @@
 //  Created by Goodwasp on 04.09.2023.
 //
 
-struct Course: Decodable {
+struct Course: Codable {
     let name: String?
     let imageUrl: String?
     let numberOfLessons: Int?
